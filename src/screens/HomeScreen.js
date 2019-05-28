@@ -42,7 +42,7 @@ export default createMaterialTopTabNavigator(
       screen: MovieScreen,
       navigationOptions: {
         header: null,
-        tabBarLabel: <Text style={{ fontSize: 13 }}>Matches</Text>,
+        tabBarLabel: <Text style={{ fontSize: 13 }}>Movies</Text>,
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-football" color={tintColor} size={20} />
         )
