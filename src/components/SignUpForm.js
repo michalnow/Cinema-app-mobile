@@ -1,86 +1,99 @@
-import React, { Component } from "react";
-import { Text, View, TextInput, StyleSheet, CheckBox, TouchableOpacity, Text } from "react-native";
+import React, {
+  Component
+} from "react";
+import {
+  Text,
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 import firebase from '../config/firebase'
 
 export default class SignUpForm extends Component {
   constructor() {
     super();
     state = {
-      username: "",
       email: "",
       password: "",
-      repeatpassword: ""
     };
   }
 
   SignUp = (email, password) => {
     try {
       firebase
-          .auth()
-          .createUserWithEmailAndPassword(email, password)
-          .then(user => { 
-          console.log(user);
-          });
-} catch (error) {
-      console.log(error.toString(error));
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(user => {});
+    } catch (error) {
+      console.log(error);
     }
   };
   render() {
     return (
       <View style={StyleSheet.container}>
+       
+      <TextInput
+                  placeholder="username"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  returnKeyType="next"
+                  keyboardType="default"
+                  style={styles.input}
+                  onSubmitEditing={() => {
+                    this.emailInput.focus();
+                  }}
+                  onChangeText={username => this.setState({ username })}
+                  blurOnSubmit={false}
+                /> 
+      <TextInput
+        placeholder = "email"
+        autoCapitalize = "none"
+        autoCorrect = {false}
+        returnKeyType = "next"
+        keyboardType = "email-address"
+        style = {styles.input}
+        ref = {input => {this.emailInput = input}}
+      onSubmitEditing = {() => this.passwordInput.focus()}
+      onChangeText = {email => this.setState({email})}
+      blurOnSubmit = {false}
+      /> 
+      <TextInput placeholder = "password"
+      autoCapitalize = "none"
+      secureTextEntry = {
+        true
+      }
+      returnKeyType = "next"
+      ref = {
+        input => (this.passwordInput = input)
+      }
+      style = {
+        styles.input
+      }
+      onSubmitEditing = {
+        () => this.repeatPasswordInput.focus()
+      }
+      onChangeText = {
+        password => this.setState({
+          password
+        })
+      }
+      blurOnSubmit = {
+        false
+      }
+      /> {
         <TextInput
-          placeholder="username"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          keyboardType="default"
-          style={styles.input}
-          onSubmitEditing={() => {
-            this.emailInput.focus();
-          }}
-          onChangeText={username => this.setState({ username })}
-          blurOnSubmit={false}
-        />
-        <TextInput
-          placeholder="email"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          keyboardType="email-address"
-          style={styles.input}
-          ref={input => {
-            this.emailInput = input;
-          }}
-          onSubmitEditing={() => this.passwordInput.focus()}
-          onChangeText={email => this.setState({ email })}
-          blurOnSubmit={false}
-        />
-        <TextInput
-          placeholder="password"
-          autoCapitalize="none"
-          secureTextEntry={true}
-          returnKeyType="next"
-          ref={input => (this.passwordInput = input)}
-          style={styles.input}
-          onSubmitEditing={() => this.repeatPasswordInput.focus()}
-          onChangeText={password => this.setState({ password })}
-          blurOnSubmit={false}
-        />
-        <TextInput
-          placeholder="repeat password"
-          autoCapitalize="none"
-          secureTextEntry={true}
-          returnKeyType="go"
-          ref={input => (this.repeatPasswordInput = input)}
-          style={styles.input}
-          onChangeText={repeatpassword => this.setState({ repeatpassword })}
-        />
-        <TouchableOpacity
-            
-            onPress={() => this.SignUp(this.state.email, this.state.password)}
-          >
-            <Text> Submit </Text>
-          </TouchableOpacity>
+                  placeholder="repeat password"
+                  autoCapitalize="none"
+                  secureTextEntry={true}
+                  returnKeyType="go"
+                  ref={input => (this.repeatPasswordInput = input)}
+                  style={styles.input}
+                  onChangeText={repeatpassword => this.setState({ repeatpassword })}
+                /> 
+      } <TouchableOpacity onPress = {() => this.SignUp(this.state.email, this.state.password)} >
+      <Text > Submit </Text> 
+      </TouchableOpacity> 
       </View>
     );
   }
