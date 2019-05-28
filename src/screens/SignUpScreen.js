@@ -20,7 +20,7 @@ export default class SignUpScreen extends Component {
             style={styles.buttonContainer}
             onPress={() => this.props.navigation.goBack()}
           >
-            <Text style={styles.buttonText}>Submit</Text>
+            <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
         </View>
       </View>

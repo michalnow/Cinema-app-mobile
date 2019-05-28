@@ -1,6 +1,13 @@
 import React, { Component } from "react";
-import { View, StyleSheet, TextInput, TouchableOpacity, Text } from "react-native";
-import firebase from '../config/firebase'
+import { withNavigation } from "react-navigation";
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text
+} from "react-native";
+import firebase from "../config/firebase";
 
 class Login extends Component {
   constructor() {
@@ -17,10 +24,9 @@ class Login extends Component {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(res => {
-          console.log("elo")
-          console.log(res.user.email);
-      });
-} catch (error) {
+          this.props.navigation.navigate("Home");
+        });
+    } catch (error) {
       console.log(error);
     }
   };
@@ -51,7 +57,7 @@ class Login extends Component {
           style={styles.buttonContainer}
           onPress={() => this.Login(this.state.email, this.state.password)}
         >
-          <Text style={styles.buttonText}> Submit </Text>
+          <Text style={styles.buttonText}> Login </Text>
         </TouchableOpacity>
       </View>
     );
@@ -70,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     color: "black",
     paddingHorizontal: 10
-  }, 
+  },
   buttonContainer: {
     backgroundColor: "#7070EF",
     paddingVertical: 15,
@@ -89,4 +95,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login;
+export default withNavigation(Login);
