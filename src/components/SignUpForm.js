@@ -1,16 +1,32 @@
 import React, { Component } from "react";
-import { Text, View, TextInput, StyleSheet, CheckBox } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
+import firebase from "../config/firebase";
 
 export default class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     state = {
-      username: "",
       email: "",
-      password: "",
-      repeatpassword: ""
+      password: ""
     };
   }
+
+  SignUp = (email, password) => {
+    try {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(user => {});
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     return (
       <View style={StyleSheet.container}>
@@ -28,7 +44,7 @@ export default class SignUpForm extends Component {
           blurOnSubmit={false}
         />
         <TextInput
-          placeholder="e-mail"
+          placeholder="email"
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="next"
@@ -61,6 +77,15 @@ export default class SignUpForm extends Component {
           style={styles.input}
           onChangeText={repeatpassword => this.setState({ repeatpassword })}
         />
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => this.SignUp(this.state.email, this.state.password)}
+        >
+          <Text style={styles.buttonText}>Submit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log(this.state)}>
+          <Text>CONSOLE</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -87,5 +112,21 @@ const styles = StyleSheet.create({
     color: "white",
     paddingHorizontal: 10,
     opacity: 0.3
+  },
+  buttonContainer: {
+    backgroundColor: "#7070EF",
+    paddingVertical: 15,
+    marginBottom: 20,
+    marginLeft: 50,
+    marginRight: 50,
+    borderWidth: 0,
+    borderColor: "transparent",
+    borderRadius: 12,
+    padding: 90
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "black",
+    fontSize: 20
   }
 });

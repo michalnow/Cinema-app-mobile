@@ -1,26 +1,48 @@
 import React, { Component } from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { withNavigation } from "react-navigation";
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text
+} from "react-native";
+import firebase from "../config/firebase";
 
 class Login extends Component {
   constructor() {
     super();
     state = {
-      username: "",
+      email: "",
       password: ""
     };
   }
+
+  Login = (email, password) => {
+    try {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(res => {
+          this.props.navigation.navigate("Home");
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <View style={StyleSheet.container}>
         <TextInput
-          placeholder="username"
+          placeholder="email"
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="next"
           keyboardType="email-address"
           style={styles.input}
           onSubmitEditing={() => this.passwordInput.focus()}
-          onChangeText={username => this.setState({ username })}
+          onChangeText={email => this.setState({ email })}
         />
         <TextInput
           placeholder="password"
@@ -31,6 +53,12 @@ class Login extends Component {
           style={styles.input}
           onChangeText={password => this.setState({ password })}
         />
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => this.Login(this.state.email, this.state.password)}
+        >
+          <Text style={styles.buttonText}> Login </Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -48,7 +76,23 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     color: "black",
     paddingHorizontal: 10
+  },
+  buttonContainer: {
+    backgroundColor: "#7070EF",
+    paddingVertical: 15,
+    marginBottom: 20,
+    marginLeft: 50,
+    marginRight: 50,
+    borderWidth: 0,
+    borderColor: "transparent",
+    borderRadius: 12,
+    padding: 90
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "white",
+    fontSize: 20
   }
 });
 
-export default Login;
+export default withNavigation(Login);

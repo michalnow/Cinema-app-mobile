@@ -12,6 +12,7 @@ import Login from "../components/Login";
 export default class LoginScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
+    console.log(navigate);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#7070EF" />
@@ -22,21 +23,20 @@ export default class LoginScreen extends Component {
           />
         </View>
         <Login />
-        <View style={styles.formContainer}>
+        {/* <View style={styles.formContainer}>
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => navigate("Home")}
           >
             <Text style={styles.buttonText}> Login </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={styles.logoContainer}>
-          <Text
-            style={{ color: "blue", textAlign: "center" }}
-            onPress={() => navigate("SignUp")}
-          >
-            Dont't have account ? Click here to registry.
-          </Text>
+          <TouchableOpacity onPress={() => navigate("SignUp")}>
+            <Text style={{ color: "blue", textAlign: "center" }}>
+              Dont't have account ? Click here to registry.
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

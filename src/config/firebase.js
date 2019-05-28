@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
+
 var config = {
   apiKey: "AIzaSyDWdmIxG3RwAMli1s-GhAIib5du0NfyCaw",
   authDomain: "cinemapp-service.firebaseapp.com",
@@ -12,8 +13,10 @@ var config = {
 };
 
 firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+// firebase.firestore().settings({});
 export const auth = firebase.auth
 export const provider = new firebase.auth.FacebookAuthProvider()
+console.log(auth)
+
 
 export default firebase;
