@@ -65,11 +65,7 @@ export default class SignUpForm extends Component {
           ref={input => (this.passwordInput = input)}
           style={styles.input}
           onSubmitEditing={() => this.repeatPasswordInput.focus()}
-          onChangeText={password =>
-            this.setState({
-              password
-            })
-          }
+          onChangeText={password => this.setState({ password })}
           blurOnSubmit={false}
         />
         <TextInput
@@ -82,8 +78,14 @@ export default class SignUpForm extends Component {
           onChangeText={repeatpassword => this.setState({ repeatpassword })}
         />
         <TouchableOpacity
+          style={styles.buttonContainer}
           onPress={() => this.SignUp(this.state.email, this.state.password)}
-        />
+        >
+          <Text style={styles.buttonText}>Submit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log(this.state)}>
+          <Text>CONSOLE</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -110,5 +112,21 @@ const styles = StyleSheet.create({
     color: "white",
     paddingHorizontal: 10,
     opacity: 0.3
+  },
+  buttonContainer: {
+    backgroundColor: "#7070EF",
+    paddingVertical: 15,
+    marginBottom: 20,
+    marginLeft: 50,
+    marginRight: 50,
+    borderWidth: 0,
+    borderColor: "transparent",
+    borderRadius: 12,
+    padding: 90
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "black",
+    fontSize: 20
   }
 });
