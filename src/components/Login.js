@@ -19,6 +19,7 @@ class Login extends Component {
         .then(res => {
           console.log("elo")
           console.log(res.user.email);
+          
       });
 } catch (error) {
       console.log(error);
@@ -53,6 +54,9 @@ class Login extends Component {
         >
           <Text style={styles.buttonText}> Submit </Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress = {() => console.log(this.props)} >
+      <Text>CONSOLE</Text>
+      </TouchableOpacity> 
       </View>
     );
   }

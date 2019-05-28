@@ -80,6 +80,9 @@ export default class SignUpForm extends Component {
       <TouchableOpacity style={styles.buttonContainer} onPress = {() => this.SignUp(this.state.email, this.state.password)} >
       <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity> 
+      <TouchableOpacity onPress = {() => console.log(this.state)} >
+      <Text>CONSOLE</Text>
+      </TouchableOpacity> 
       </View>
     );
   }
