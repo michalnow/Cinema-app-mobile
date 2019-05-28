@@ -22,21 +22,20 @@ export default class LoginScreen extends Component {
           />
         </View>
         <Login />
-        <View style={styles.formContainer}>
+        {/* <View style={styles.formContainer}>
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => navigate("Home")}
           >
             <Text style={styles.buttonText}> Login </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={styles.logoContainer}>
-          <Text
-            style={{ color: "blue", textAlign: "center" }}
+          <TouchableOpacity
             onPress={() => navigate("SignUp")}
           >
-            Dont't have account ? Click here to registry.
-          </Text>
+            <Text style={{ color: "blue", textAlign: "center" }}>Dont't have account ? Click here to registry.</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

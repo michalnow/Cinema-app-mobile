@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Text, View, TextInput, StyleSheet, CheckBox } from "react-native";
+import { Text, View, TextInput, StyleSheet, CheckBox, TouchableOpacity, Text } from "react-native";
+import firebase from '../config/firebase'
 
 export default class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     state = {
       username: "",
       email: "",
@@ -11,6 +12,19 @@ export default class SignUpForm extends Component {
       repeatpassword: ""
     };
   }
+
+  SignUp = (email, password) => {
+    try {
+      firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(user => { 
+          console.log(user);
+          });
+} catch (error) {
+      console.log(error.toString(error));
+    }
+  };
   render() {
     return (
       <View style={StyleSheet.container}>
@@ -28,7 +42,7 @@ export default class SignUpForm extends Component {
           blurOnSubmit={false}
         />
         <TextInput
-          placeholder="e-mail"
+          placeholder="email"
           autoCapitalize="none"
           autoCorrect={false}
           returnKeyType="next"
@@ -61,6 +75,12 @@ export default class SignUpForm extends Component {
           style={styles.input}
           onChangeText={repeatpassword => this.setState({ repeatpassword })}
         />
+        <TouchableOpacity
+            
+            onPress={() => this.SignUp(this.state.email, this.state.password)}
+          >
+            <Text> Submit </Text>
+          </TouchableOpacity>
       </View>
     );
   }
