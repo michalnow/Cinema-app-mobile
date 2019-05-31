@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image} from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation";
 import MovieScreen from "./MovieScreen";
 import UserScreen from "./UserScreen";
@@ -9,8 +9,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 class HomeScreen extends Component {
   render() {
     return (
-      <View>
-        <Text> HomeScreen </Text>
+      <View style={{    justifyContent: "center", 
+      alignItems: "center"}}>
+        <Text
+          style={{
+            marginTop: 15,
+            fontSize: 60,
+            fontWeight: "bold",
+            color: "black"
+            }}> Welcome </Text>
+        <Image
+          style={{marginTop: 10}}
+          source={require("../images/cinema1.png")}
+        />
       </View>
     );
   }
