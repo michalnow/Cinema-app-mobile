@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import firebase from "../../config/firebase";
+import firebase from "../config/firebase";
 
 export default class SearchScreen extends Component {
+  constructor() {
+    super();
+    this.state = {
+      movies: null,
+      visible: false,
+      movieId: null,
+      uids: null
+    };
+  }
 
   componentDidMount() {
     const markers = [];
@@ -27,7 +36,7 @@ export default class SearchScreen extends Component {
   render() {
     return (
       <View>
-        <Text> {console.log(movie)} </Text>
+        <Text> {console.log(this.state.movies)} </Text>
       </View>
     );
   }
