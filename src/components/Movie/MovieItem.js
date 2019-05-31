@@ -1,10 +1,14 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { View, Text } from 'react-native';
+import firebase from "../../config/firebase";
 
-const MovieItem = () => {
+const MovieItem = (props) => {
+    
+
     return (
         <View>
-            <Text></Text>
+            {console.log(props)}
+            <Text>ASDSADASD</Text>
         </View>
     )
 }

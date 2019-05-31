@@ -6,6 +6,7 @@ import Dialog, {
   DialogContent,
   SlideAnimation
 } from "react-native-popup-dialog";
+import { withNavigation } from "react-navigation";
 
 class MovieDashboard extends Component {
   constructor() {
@@ -37,6 +38,7 @@ class MovieDashboard extends Component {
       });
   }
 
+
   render() {
     const theme = getTheme();
     return (
@@ -46,7 +48,7 @@ class MovieDashboard extends Component {
             ? null
             : this.state.movies.map(movie => {
                 return (
-                  <View key={movie.movieApiId}>
+                  <View >
                     <View
                       style={{
                         alignItems: "center",
@@ -85,9 +87,11 @@ class MovieDashboard extends Component {
                           backgroundColor: "#0051A5"
                         }}
                         onPress={() => {
-                          this.setState({ visible: true });
+                          this.props.navigation.navigate("MovieItem", {
+                            movie
+                          });
                         }}
-                      >
+                      > 
                         <Text style={{ color: "white" }}>Movie details</Text>
                       </TouchableOpacity>
                     </View>
@@ -99,5 +103,4 @@ class MovieDashboard extends Component {
     );
   }
 }
-
-export default MovieDashboard;
+export default withNavigation(MovieDashboard);
