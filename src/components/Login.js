@@ -8,14 +8,32 @@ import {
   Text
 } from "react-native";
 import firebase from "../config/firebase";
+import { provider, auth } from "../config/firebase"
 
 class Login extends Component {
   constructor() {
     super();
     state = {
       email: "",
-      password: ""
+      password: "",
+      user: "",
+      clicked: false
+
     };
+  }
+
+  loginWithFB = () => {
+    firebase.auth().signInWithPopup(provider)
+      .then(({ user }) => {
+        console.log("eloelo")
+        this.setState({ user: user })
+        console.log( this.state.user.displayName)
+        firebase
+      .firestore()
+      .collection("users").add(({
+        username: this.state.user.displayName
+      }))
+      })
   }
 
   Login = (email, password) => {
@@ -58,6 +76,12 @@ class Login extends Component {
           onPress={() => this.Login(this.state.email, this.state.password)}
         >
           <Text style={styles.buttonText}> Login </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => this.loginWithFB()}
+        >
+          <Text style={styles.buttonText}> Login with Facebook </Text>
         </TouchableOpacity>
       </View>
     );
