@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
+import MovieDashboard from "../components/Movie/MovieDashboard";
 
-export default class MovieScreen extends Component {
+class MovieScreen extends Component {
   render() {
     return (
       <View>
-        <Text> MovieScreen </Text>
+        <MovieDashboard />
       </View>
     );
   }
 }
+
+export default MovieScreen;
