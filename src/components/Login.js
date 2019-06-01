@@ -33,6 +33,8 @@ class Login extends Component {
               const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken)
               firebase.auth().signInWithCredential(credential).then((result) => {
                 //promise was succes
+                console.log("Logged in")
+                this.props.navigation.navigate("Home");
               }, (error) => {
                 //promise was rejected
                 consol.log(error)
