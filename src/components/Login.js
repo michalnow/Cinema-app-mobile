@@ -44,6 +44,7 @@ class Login extends Component {
       },
       function(error) {
         alert("Login fail with error: " + error);
+        console.log("Login fail with error: " + error)
       }
     );
   }
