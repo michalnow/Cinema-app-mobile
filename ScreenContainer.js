@@ -2,6 +2,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import LoginScreen from "./src/screens/LoginScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
+
 import AvMovie0Screen from "./src/screens/MovieAvaiabilityScreens/AvMovie0Screen";
 import AvMovie1Screen from "./src/screens/MovieAvaiabilityScreens/AvMovie1Screen";
 import AvMovie2Screen from "./src/screens/MovieAvaiabilityScreens/AvMovie2Screen";
