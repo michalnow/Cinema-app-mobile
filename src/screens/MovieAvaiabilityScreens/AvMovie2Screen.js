@@ -94,6 +94,7 @@ class AvMovie2Screen extends Component {
                       fontSize: 20,
                       fontWeight: "bold"
                     }}
+                    onPress={() => this.props.navigation.navigate("Movie2Rs")}
                   >
                     {" "}
                     {sean.seanceDate}
