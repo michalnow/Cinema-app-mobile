@@ -14,7 +14,7 @@ import Container from "./ScreenContainer";
 
 export default class App extends Component {
   render() {
-    return <Container />;
+    return <Container/>;
   }
 }
 
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#F0F8FF"
   },
   welcome: {
     fontSize: 20,

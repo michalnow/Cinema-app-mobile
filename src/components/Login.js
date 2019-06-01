@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { withNavigation } from "react-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
 import {
   View,
   StyleSheet,
   TextInput,
+  Image,
   TouchableOpacity,
   Text
 } from "react-native";
@@ -69,6 +71,10 @@ class Login extends Component {
   render() {
     return (
       <View style={StyleSheet.container}>
+        <Image
+          style={{ marginLeft: 10, marginBottom:10}}
+          source={require("../images/cinema1.png")}
+        />
         <TextInput
           placeholder="email"
           autoCapitalize="none"
@@ -95,10 +101,11 @@ class Login extends Component {
           <Text style={styles.buttonText}> Login </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.buttonContainer}
+          style={styles.fbbuttonContainer}
           onPress={() => this.fbAuth()}
         >
-          <Text style={styles.buttonText}> Login with Facebook </Text>
+          <Icon name="logo-facebook" color="white"/>    
+          <Text style={styles.fbbuttonText}>Login with Facebook</Text>
         </TouchableOpacity>
       </View>
     );
@@ -129,10 +136,32 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 90
   },
+
+  fbbuttonContainer: {
+    backgroundColor: "#3b5998",
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 15,
+    marginBottom: 20,
+    marginLeft: 50,
+    marginRight: 50,
+    borderWidth: 0,
+    borderColor: "transparent",
+    borderRadius: 12,
+    padding: 90
+  },
+
+
   buttonText: {
     textAlign: "center",
     color: "white",
     fontSize: 20
+  },
+  fbbuttonText: {
+    textAlign: "center",
+    color: "white",
+    fontSize: 10
   }
 });
 

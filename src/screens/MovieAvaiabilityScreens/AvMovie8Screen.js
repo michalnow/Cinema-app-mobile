@@ -86,6 +86,7 @@ class AvMovie8Screen extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  
                 >
                   <Text
                     style={{
@@ -94,6 +95,7 @@ class AvMovie8Screen extends Component {
                       fontSize: 20,
                       fontWeight: "bold"
                     }}
+                    onPress={() => this.props.navigation.navigate("Movie8Rs")}
                   >
                     {" "}
                     {sean.seanceDate}
