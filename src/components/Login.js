@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import firebase from "../config/firebase";
 import { provider, auth } from "../config/firebase"
+import FBSDK, { LoginManager, AccessToken } from "react-native-fbsdk";
 
 class Login extends Component {
   constructor() {
@@ -22,19 +23,32 @@ class Login extends Component {
     };
   }
 
-  loginWithFB = () => {
-    firebase.auth().signInWithPopup(provider)
-      .then(({ user }) => {
-        console.log("eloelo")
-        this.setState({ user: user })
-        console.log( this.state.user.displayName)
-        firebase
-      .firestore()
-      .collection("users").add(({
-        username: this.state.user.displayName
-      }))
-      })
+  fbAuth = () => {
+    LoginManager.logInWithReadPermissions(["public_profile"]).then(
+      function(result) {
+        if (result.isCancelled) {
+          alert("Login cancelled");
+        } else {
+            AccessToken.getCurrentAccessToken().then((accessTokenData) => {
+              const credential = firebase.auth.FacebookAuthProvider.credential(accessTokenData.accessToken)
+              firebase.auth().signInWithCredential(credential).then((result) => {
+                //promise was succes
+              }, (error) => {
+                //promise was rejected
+                consol.log(error)
+              })
+            }, (error => {
+              consol.log('Some error occured: ' + error)
+            }))
+        }
+      },
+      function(error) {
+        alert("Login fail with error: " + error);
+      }
+    );
   }
+
+
 
   Login = (email, password) => {
     try {
@@ -79,7 +93,7 @@ class Login extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => this.loginWithFB()}
+          onPress={() => this.fbAuth()}
         >
           <Text style={styles.buttonText}> Login with Facebook </Text>
         </TouchableOpacity>
