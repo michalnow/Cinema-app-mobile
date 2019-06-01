@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator
+} from "react-native";
 import firebase from "../../config/firebase";
 import { getTheme } from "react-native-material-kit";
-import Dialog, {
-  DialogContent,
-  SlideAnimation,
-  DialogTitle
-} from "react-native-popup-dialog";
-import { Button } from "react-native-elements";
+import { withNavigation } from "react-navigation";
 
 class MovieDashboard extends Component {
   constructor() {
@@ -54,7 +56,9 @@ class MovieDashboard extends Component {
         }}
       >
         <ScrollView style={{ marginBottom: 5 }}>
-          {this.state.movies == null ? null : (
+          {this.state.movies == null ? (
+            <ActivityIndicator size="large" color="#0000ff" />
+          ) : (
             <View>
               <View
                 style={{
@@ -113,6 +117,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie0Av")}
                 >
                   <Text
                     style={{
@@ -182,6 +187,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie1Av")}
                 >
                   <Text
                     style={{
@@ -251,6 +257,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie2Av")}
                 >
                   <Text
                     style={{
@@ -320,6 +327,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie3Av")}
                 >
                   <Text
                     style={{
@@ -351,7 +359,7 @@ class MovieDashboard extends Component {
                     fontWeight: "bold"
                   }}
                 >
-                  {this.state.movies[1].title}
+                  {this.state.movies[4].title}
                 </Text>
                 <Image
                   source={{ uri: this.state.movies[4].image }}
@@ -389,6 +397,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie4Av")}
                 >
                   <Text
                     style={{
@@ -458,6 +467,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie5Av")}
                 >
                   <Text
                     style={{
@@ -527,6 +537,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie6Av")}
                 >
                   <Text
                     style={{
@@ -596,6 +607,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie7Av")}
                 >
                   <Text
                     style={{
@@ -665,6 +677,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie8Av")}
                 >
                   <Text
                     style={{
@@ -734,6 +747,7 @@ class MovieDashboard extends Component {
                     borderRadius: 12,
                     padding: 20
                   }}
+                  onPress={() => this.props.navigation.navigate("Movie9Av")}
                 >
                   <Text
                     style={{
@@ -754,4 +768,4 @@ class MovieDashboard extends Component {
   }
 }
 
-export default MovieDashboard;
+export default withNavigation(MovieDashboard);
