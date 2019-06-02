@@ -138,6 +138,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-voice')
+    compile project(':react-native-voice')
     implementation project(':react-native-orientation')
     implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
     implementation project(':react-native-fbsdk')

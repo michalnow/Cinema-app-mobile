@@ -5,13 +5,11 @@ import Icon from "react-native-vector-icons/Ionicons";
 import MovieScreen from "./MovieScreen";
 import UserScreen from "./UserScreen";
 import SearchScreen from "./SearchScreen";
-import HomeMovies from "./HomeMovies"
+import HomeMovies from "./HomeMovies";
 
 class HomeScreen extends Component {
   render() {
-    return (
-      <HomeMovies />
-    );
+    return <HomeMovies />;
   }
 }
 
