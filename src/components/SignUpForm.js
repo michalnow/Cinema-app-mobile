@@ -4,11 +4,13 @@ import {
   View,
   TextInput,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 import firebase from "../config/firebase";
 
-export default class SignUpForm extends Component {
+class SignUpForm extends Component {
   constructor() {
     super();
     state = {
@@ -26,11 +28,16 @@ export default class SignUpForm extends Component {
     } catch (error) {
       console.log(error);
     }
+    this.props.navigation.navigate("Home");
   };
   render() {
     return (
       <View style={StyleSheet.container}>
-        <TextInput
+      <Image
+          style={{ marginLeft: 10, marginBottom:10}}
+          source={require("../images/cinema1.png")}
+        />
+        {/* <TextInput
           placeholder="username"
           autoCapitalize="none"
           autoCorrect={false}
@@ -42,7 +49,7 @@ export default class SignUpForm extends Component {
           }}
           onChangeText={username => this.setState({ username })}
           blurOnSubmit={false}
-        />
+        /> */}
         <TextInput
           placeholder="email"
           autoCapitalize="none"
@@ -68,7 +75,7 @@ export default class SignUpForm extends Component {
           onChangeText={password => this.setState({ password })}
           blurOnSubmit={false}
         />
-        <TextInput
+        {/* <TextInput
           placeholder="repeat password"
           autoCapitalize="none"
           secureTextEntry={true}
@@ -76,15 +83,12 @@ export default class SignUpForm extends Component {
           ref={input => (this.repeatPasswordInput = input)}
           style={styles.input}
           onChangeText={repeatpassword => this.setState({ repeatpassword })}
-        />
+        /> */}
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => this.SignUp(this.state.email, this.state.password)}
         >
           <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log(this.state)}>
-          <Text>CONSOLE</Text>
         </TouchableOpacity>
       </View>
     );
@@ -130,3 +134,5 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+export default withNavigation(SignUpForm);
