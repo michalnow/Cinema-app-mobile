@@ -4,7 +4,8 @@ import {
   View,
   TextInput,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import { withNavigation } from "react-navigation";
 import firebase from "../config/firebase";
@@ -32,6 +33,10 @@ class SignUpForm extends Component {
   render() {
     return (
       <View style={StyleSheet.container}>
+      <Image
+          style={{ marginLeft: 10, marginBottom:10}}
+          source={require("../images/cinema1.png")}
+        />
         {/* <TextInput
           placeholder="username"
           autoCapitalize="none"
