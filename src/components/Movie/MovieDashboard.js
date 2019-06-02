@@ -47,12 +47,10 @@ class MovieDashboard extends Component {
         style={{
           alignItems: "center",
           marginTop: 5,
-          borderStyle: "solid",
-          borderWidth: 2,
           borderRadius: 20,
           marginLeft: 2,
           marginRight: 2,
-          borderColor: "#0051A5"
+          backgroundColor:"#F5F5F5" 
         }}
       >
         <ScrollView style={{ marginBottom: 5 }}>
@@ -69,14 +67,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[0].title}
@@ -92,21 +91,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[0].type}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[0].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[0].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[0].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[0].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[0].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[0].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[0].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -139,14 +138,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[1].title}
@@ -162,21 +162,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[1].type}
+            <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[1].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[1].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[1].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[1].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[1].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[1].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[1].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -209,14 +209,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[2].title}
@@ -232,21 +233,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[2].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[2].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[2].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[2].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[2].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[2].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[2].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[2].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -279,14 +280,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[3].title}
@@ -302,21 +304,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[3].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[3].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[3].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[3].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[3].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[3].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[3].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[3].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -349,14 +351,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[4].title}
@@ -372,21 +375,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[4].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[4].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[4].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[4].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[4].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[4].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[4].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[4].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -419,14 +422,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[5].title}
@@ -442,21 +446,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[5].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[5].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[5].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[5].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[5].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[5].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[5].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[5].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -489,14 +493,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[6].title}
@@ -512,21 +517,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[6].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[6].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[6].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[6].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[6].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[6].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[6].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[6].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -559,14 +564,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[7].title}
@@ -582,21 +588,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[7].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[7].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[7].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[7].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[7].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[7].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[7].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[7].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -629,14 +635,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[8].title}
@@ -652,21 +659,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[8].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[8].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[8].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[8].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[8].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[8].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[8].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[8].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
@@ -699,14 +706,15 @@ class MovieDashboard extends Component {
                   borderRadius: 20,
                   marginLeft: 2,
                   marginRight: 2,
-                  borderColor: "#0051A5"
+                  borderColor: "black"
                 }}
               >
                 <Text
                   style={{
                     textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold"
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    color:"black"
                   }}
                 >
                   {this.state.movies[9].title}
@@ -722,21 +730,21 @@ class MovieDashboard extends Component {
                     borderRadius: 10
                   }}
                 />
-                <Text style={{ textAlign: "center" }}>
-                  Genre: {this.state.movies[9].type}
+      <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                  Genre: <Text style={{fontWeight:"normal"}} >{this.state.movies[9].type}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Plot: {this.state.movies[9].plot}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold" }}>
+                Plot: <Text style={{fontWeight:"normal"}} >{this.state.movies[9].plot}</Text>
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Director: {this.state.movies[9].director}
+                <Text style={{ textAlign: "center", color:"black", fontWeight:"bold"}}>
+                  Director:<Text style={{fontWeight:"normal"}} >{this.state.movies[9].director}</Text> 
                 </Text>
-                <Text style={{ textAlign: "center" }}>
-                  Actors: {this.state.movies[9].actors}
+                <Text style={{ textAlign: "center" , color:"black", fontWeight:"bold" }}>
+                Actors: <Text style={{fontWeight:"normal"}} >{this.state.movies[9].actors}</Text>
                 </Text>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
