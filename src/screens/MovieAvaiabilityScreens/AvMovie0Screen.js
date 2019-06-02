@@ -52,11 +52,11 @@ class AvMovie0Screen extends Component {
               borderRadius: 20,
               marginLeft: 2,
               marginRight: 2,
-              borderColor: "#0051A5"
+              borderColor: "black"
             }}
           >
             <Text
-              style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}
+              style={{ textAlign: "center", fontWeight: "bold", fontSize: 25, color:"black" }}
             >
               {this.state.movie.title}
             </Text>
@@ -72,7 +72,7 @@ class AvMovie0Screen extends Component {
               }}
             />
             <Text
-              style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}
+              style={{ textAlign: "center", fontWeight: "bold", fontSize: 25, color:"black"}}
             >
               Choose seance date:{" "}
             </Text>
@@ -80,7 +80,7 @@ class AvMovie0Screen extends Component {
               return (
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "#7070EF",
+                    backgroundColor: "#0051a5",
                     paddingVertical: 15,
                     marginBottom: 5,
                     marginTop: 5,
