@@ -22,7 +22,7 @@ movie listing, seats reservation. What is really important it provides voice to 
 - Nelli - _**Prototype and diagram**_
 
 Use case diagram:
-![alt text](https://raw.githubusercontent.com/halflajf/HalfLajf/master/use_case_diagram_half_lajf.png)
+![alt text]()
 
 Prototype:
 In prototype folder in our repo
