@@ -90,7 +90,7 @@ class ReservMovie8Screen extends Component {
         }}
       >
         <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
-          Order tickets for The Shawshank Redemption
+          Order tickets for Interstellar
         </Text>
         {this.state.seatsBooked === null ? (
           <ActivityIndicator
