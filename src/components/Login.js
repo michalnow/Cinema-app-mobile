@@ -36,7 +36,7 @@ class Login extends Component {
               firebase.auth().signInWithCredential(credential).then((result) => {
                 //promise was succes
                 console.log("Logged in")
-                this.props.navigation.navigate("Home");
+                
               }, (error) => {
                 //promise was rejected
                 consol.log(error)
@@ -46,11 +46,13 @@ class Login extends Component {
             }))
         }
       },
+
       function(error) {
         alert("Login fail with error: " + error);
         console.log("Login fail with error: " + error)
       }
     );
+    this.props.navigation.navigate("Home");
   }
 
 
@@ -61,11 +63,11 @@ class Login extends Component {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(res => {
-          this.props.navigation.navigate("Home");
         });
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+      this.props.navigation.navigate("Home");
   };
 
   render() {
