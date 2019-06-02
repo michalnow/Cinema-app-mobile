@@ -1,18 +1,27 @@
 // @flow
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  ActivityIndicator
+} from "react-native";
+import axios from "axios";
 
-import Voice from 'react-native-voice';
+import Voice from "react-native-voice";
 
-class VoiceTest extends Component {
+class SearchScreen extends Component {
   state = {
-    recognized: '',
-    pitch: '',
-    error: '',
-    end: '',
-    started: '',
+    recognized: "",
+    pitch: "",
+    error: "",
+    end: "",
+    started: "",
     results: [],
     partialResults: [],
+    movie: null
   };
 
   constructor(props) {
@@ -32,73 +41,86 @@ class VoiceTest extends Component {
 
   onSpeechStart = e => {
     // eslint-disable-next-line
-    console.log('onSpeechStart: ', e);
+    console.log("onSpeechStart: ", e);
     this.setState({
-      started: '√',
+      started: "√"
     });
   };
 
   onSpeechRecognized = e => {
     // eslint-disable-next-line
-    console.log('onSpeechRecognized: ', e);
+    console.log("onSpeechRecognized: ", e);
     this.setState({
-      recognized: '√',
-    });
-  };
-
-  onSpeechEnd = e => {
-    // eslint-disable-next-line
-    console.log('onSpeechEnd: ', e);
-    this.setState({
-      end: '√',
+      recognized: "√"
     });
   };
 
   onSpeechError = e => {
     // eslint-disable-next-line
-    console.log('onSpeechError: ', e);
+    console.log("onSpeechError: ", e);
     this.setState({
-      error: JSON.stringify(e.error),
+      error: JSON.stringify(e.error)
     });
   };
 
   onSpeechResults = e => {
     // eslint-disable-next-line
-    console.log('onSpeechResults: ', e);
+    console.log("onSpeechResults: ", e);
     this.setState({
-      results: e.value,
+      results: e.value
     });
+
+    {
+      this.state.partialResults.map((result, index) => {
+        return axios
+          .get(`http://51.15.102.229:5000/api/movies?search=${result}`)
+          .then(res => {
+            const movie1 = res.data;
+            this.setState({ movie: movie1 });
+            console.log(this.state.movie);
+            console.log(result);
+          });
+      });
+    }
   };
 
   onSpeechPartialResults = e => {
     // eslint-disable-next-line
-    console.log('onSpeechPartialResults: ', e);
+    console.log("onSpeechPartialResults: ", e);
     this.setState({
-      partialResults: e.value,
+      partialResults: e.value
+    });
+  };
+
+  onSpeechEnd = e => {
+    // eslint-disable-next-line
+    console.log("onSpeechEnd: ", e);
+    this.setState({
+      end: "√"
     });
   };
 
   onSpeechVolumeChanged = e => {
     // eslint-disable-next-line
-    console.log('onSpeechVolumeChanged: ', e);
+    console.log("onSpeechVolumeChanged: ", e);
     this.setState({
-      pitch: e.value,
+      pitch: e.value
     });
   };
 
   _startRecognizing = async () => {
     this.setState({
-      recognized: '',
-      pitch: '',
-      error: '',
-      started: '',
+      recognized: "",
+      pitch: "",
+      error: "",
+      started: "",
       results: [],
       partialResults: [],
-      end: '',
+      end: ""
     });
 
     try {
-      await Voice.start('en-US');
+      await Voice.start("en-US");
     } catch (e) {
       //eslint-disable-next-line
       console.error(e);
@@ -131,53 +153,54 @@ class VoiceTest extends Component {
       console.error(e);
     }
     this.setState({
-      recognized: '',
-      pitch: '',
-      error: '',
-      started: '',
+      recognized: "",
+      pitch: "",
+      error: "",
+      started: "",
       results: [],
       partialResults: [],
-      end: '',
+      end: ""
     });
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native Voice!</Text>
-        <Text style={styles.instructions}>Press the button and start speaking.</Text>
+        {this.state.movie == null ? (
+          <ActivityIndicator
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              padding: 180
+            }}
+            size="large"
+            color="#0000ff"
+          />
+        ) : (
+          <Text style={styles.stat}>
+            {this.state.end === "√"
+              ? console.log(this.state.movie.title)
+              : null}
+          </Text>
+        )}
+        <Text style={styles.welcome}>Search with your Voice !</Text>
+        <Text style={styles.instructions}>
+          Just press the button and start speaking, simple as that.
+        </Text>
         <Text style={styles.stat}>{`Started: ${this.state.started}`}</Text>
-        <Text style={styles.stat}>{`Recognized: ${this.state.recognized}`}</Text>
-        <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text>
-        <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text>
-        <Text style={styles.stat}>Results</Text>
-        {this.state.results.map((result, index) => {
-          return (
-            <Text key={`result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })}
-        <Text style={styles.stat}>Partial Results</Text>
+
         {this.state.partialResults.map((result, index) => {
           return (
             <Text key={`partial-result-${index}`} style={styles.stat}>
-              {result}
+              Your title: {result}
             </Text>
           );
         })}
         <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
         <TouchableHighlight onPress={this._startRecognizing}>
-          <Image style={styles.button} source={require('./button.png')} />
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._stopRecognizing}>
-          <Text style={styles.action}>Stop Recognizing</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._cancelRecognizing}>
-          <Text style={styles.action}>Cancel</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._destroyRecognizer}>
-          <Text style={styles.action}>Destroy</Text>
+          <Image style={styles.button} source={require("./button.png")} />
         </TouchableHighlight>
       </View>
     );
@@ -187,35 +210,36 @@ class VoiceTest extends Component {
 const styles = StyleSheet.create({
   button: {
     width: 50,
-    height: 50,
+    height: 50
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center"
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    textAlign: "center",
+    margin: 10
   },
   action: {
-    textAlign: 'center',
-    color: '#0000FF',
+    textAlign: "center",
+    color: "#0000FF",
     marginVertical: 5,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
   },
   stat: {
-    textAlign: 'center',
-    color: '#B0171F',
+    textAlign: "center",
+    color: "#B0171F",
     marginBottom: 1,
-  },
+    fontWeight: "bold",
+    fontSize: 20
+  }
 });
 
-export default VoiceTest;
+export default SearchScreen;
