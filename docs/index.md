@@ -22,7 +22,7 @@ movie listing, seats reservation. What is really important it provides voice to 
 - Nelli - _**Prototype and diagram**_
 
 Use case diagram:
-![alt text]()
+![alt text](https://raw.githubusercontent.com/michalnow/Cinema-app-mobile/master/UseCaseDiagram/useCaseDiagram.png)
 
 Prototype:
 In prototype folder in our repo
