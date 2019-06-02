@@ -3,6 +3,7 @@ package com.cinemaapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.wenkesj.voice.VoicePackage;
 import com.github.yamill.orientation.OrientationPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -37,6 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VoicePackage(),
             new OrientationPackage(),
             new FBSDKPackage(mCallbackManager),
             new RNGestureHandlerPackage(),
