@@ -4,14 +4,15 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  StatusBar
+  StatusBar,
+  ImageBackground
 } from "react-native";
 import SignUpForm from "../components/SignUpForm";
 
 export default class SignUpScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ImageBackground style={styles.container} source={require("../images/back.jpg")}>
         <StatusBar backgroundColor="#7070EF" barStyle="light-content" />
         <View style={styles.logoContainer} />
         <View style={styles.formContainer}>
@@ -23,15 +24,14 @@ export default class SignUpScreen extends Component {
             <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#F5F5F5",
+    flex: 1
   },
   logoContainer: {
     alignItems: "center",
