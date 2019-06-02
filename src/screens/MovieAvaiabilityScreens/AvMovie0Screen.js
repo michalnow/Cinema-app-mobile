@@ -29,7 +29,7 @@ class AvMovie0Screen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{backgroundColor:"#F5F5F5"}}>
         {this.state.movie == null ? (
           <ActivityIndicator
             style={{

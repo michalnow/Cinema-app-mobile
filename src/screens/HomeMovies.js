@@ -30,7 +30,7 @@ class HomeMovies extends Component {
 
   render() {
     return (
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
+      <View style={{ justifyContent: "center", alignItems: "center", backgroundColor:"#F5F5F5" }}>
         <Image
           style={{ marginTop: 10 }}
           source={require("../images/cinema1.png")}
@@ -46,7 +46,7 @@ class HomeMovies extends Component {
           Recently added
         </Text>
         
-          {this.state.movie == null ? (
+          {this.state.movie === null ? (
           <ActivityIndicator
             style={{
               flex: 1,

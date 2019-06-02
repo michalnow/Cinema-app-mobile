@@ -18,10 +18,6 @@ export default class LoginScreen extends Component {
       <ImageBackground style={styles.container} source={require("../images/back.jpg")}>
         <StatusBar backgroundColor="#7070EF" />
         <View style={styles.logoContainer}>
-          <Image
-            style={styles.logo}
-            source={require("../images/cinema.svg.png")}
-          />
         </View>
         <Login />
         {/* <View style={styles.formContainer}>
@@ -50,12 +46,13 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: "center",
-    flexGrow: 2,
-    justifyContent: "center"
+    flexGrow: 1,
+    justifyContent: "center",
+    marginTop: 40
   },
   logo: {
-    width: "auto",
-    height: "auto"
+    width: 200,
+    height: 100
   },
   buttonContainer: {
     backgroundColor: "#7070EF",

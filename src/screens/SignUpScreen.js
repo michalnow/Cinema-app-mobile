@@ -31,13 +31,13 @@ export default class SignUpScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "#F5F5F5",
   },
   logoContainer: {
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
-    marginTop: 52
+    marginTop: 40
   },
   formContainer: {
     alignItems: "center",
@@ -50,19 +50,19 @@ const styles = StyleSheet.create({
     height: 100
   },
   buttonContainer: {
-    backgroundColor: "#7070EF",
+    backgroundColor: "#0051a5",
     paddingVertical: 15,
     marginBottom: 20,
-    marginLeft: 50,
-    marginRight: 50,
+    marginLeft: 40,
+    marginRight: 40,
     borderWidth: 0,
     borderColor: "transparent",
     borderRadius: 12,
-    padding: 90
+    padding: 100
   },
   buttonText: {
     textAlign: "center",
     color: "black",
-    fontSize: 20
+    fontSize: 15
   }
 });
