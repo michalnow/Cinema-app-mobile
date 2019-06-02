@@ -89,7 +89,7 @@ class ReservMovie3Screen extends Component {
         }}
       >
         <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
-          Order tickets for American Psycho
+          Order tickets for The Wolf of Wall Street
         </Text>
         {this.state.seatsBooked === null ? (
           <ActivityIndicator
