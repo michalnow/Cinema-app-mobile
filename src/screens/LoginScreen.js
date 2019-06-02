@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  ImageBackground
 } from "react-native";
 import Login from "../components/Login";
 
@@ -14,7 +15,7 @@ export default class LoginScreen extends Component {
     const { navigate } = this.props.navigation;
     console.log(navigate);
     return (
-      <View style={styles.container}>
+      <ImageBackground style={styles.container} source={require("../images/back.jpg")}>
         <StatusBar backgroundColor="#7070EF" />
         <View style={styles.logoContainer}>
           <Image
@@ -33,12 +34,12 @@ export default class LoginScreen extends Component {
         </View> */}
         <View style={styles.logoContainer}>
           <TouchableOpacity onPress={() => navigate("SignUp")}>
-            <Text style={{ color: "blue", textAlign: "center" }}>
+            <Text style={{ color: "white", textAlign: "center" }}>
               Dont't have account ? Click here to registry.
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
