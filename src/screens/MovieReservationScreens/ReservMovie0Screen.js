@@ -24,7 +24,8 @@ class ReservMovie0Screen extends Component {
       seanceDate: "",
       movieID: "",
       hall_movieId: "",
-      userUid: ""
+      userUid: "",
+      backgroundColor: "grey"
     };
   }
 
@@ -54,8 +55,9 @@ class ReservMovie0Screen extends Component {
   }
 
   onclick = e => {
-    let array = this.state.userSeats;
-    console.log(e.target);
+  let array = this.state.userSeats;
+  this.setState({backgroundColor:"green"});
+
     /* if (array.includes(e.target.attributes.name.nodeValue.substring(1))) {
       array.splice(
         array.indexOf(e.target.attributes.name.nodeValue.substring(1)),
@@ -89,26 +91,6 @@ class ReservMovie0Screen extends Component {
         <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
           Order tickets for Pulp Fiction
         </Text>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#7070EF",
-            paddingVertical: 15,
-            marginBottom: 5,
-            marginTop: 5,
-            marginLeft: 290,
-            marginRight: 290,
-            borderWidth: 0,
-            borderColor: "transparent",
-            borderRadius: 12
-          }}
-        >
-          <Text
-            style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
-          >
-            Submit
-          </Text>
-        </TouchableOpacity>
-
         {this.state.seatsBooked === null ? (
           <ActivityIndicator
             style={{
@@ -129,7 +111,9 @@ class ReservMovie0Screen extends Component {
                   flex: 1,
                   alignSelf: "stretch",
                   flexDirection: "row",
-                  marginTop: 10
+                  marginTop: 10,
+                  marginRight :60,
+                  marginLeft:60
                 }}
               >
                 {[...Array(10)].map((x, no) => (
@@ -140,7 +124,7 @@ class ReservMovie0Screen extends Component {
                       marginRight: 2
                     }}
                     name={Number(`${i + 1}${no + 1}`)}
-                    onPress={this.onclick}
+                    
                   >
                     {this.state.seatsBooked.includes(
                       Number(String(i + 1) + String(no + 1))
@@ -148,13 +132,14 @@ class ReservMovie0Screen extends Component {
                       <Text
                         style={{
                           fontWeight: "bold",
-                          backgroundColor: "red",
+                          backgroundColor:"red",
                           textAlign: "center",
                           fontSize: 20
                         }}
                         name={Number(`${i + 1}${no + 1}`)}
                       >
                         {no + 1}
+                        
                       </Text>
                     ) : (
                       <View
@@ -167,7 +152,7 @@ class ReservMovie0Screen extends Component {
                         <Text
                           style={{
                             fontWeight: "bold",
-                            backgroundColor: "gray",
+                            backgroundColor: this.state.backgroundColor,
                             textAlign: "center",
                             fontSize: 20
                           }}
@@ -241,7 +226,7 @@ class ReservMovie0Screen extends Component {
                         <Text
                           style={{
                             fontWeight: "bold",
-                            backgroundColor: "gray",
+                            backgroundColor: this.state.backgroundColor,
                             textAlign: "center",
                             fontSize: 20
                           }}
@@ -258,6 +243,21 @@ class ReservMovie0Screen extends Component {
             ))}
           </View>
         )}
+                <TouchableOpacity
+          style={{
+            backgroundColor: "#7070EF",
+            paddingVertical: 15,
+            marginBottom: 5,
+            marginTop: 5,
+            marginLeft: 200,
+            marginRight: 200,
+            borderWidth: 0,
+            borderColor: "transparent",
+            borderRadius: 12
+          }}
+        >
+          <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}>Submit</Text>
+        </TouchableOpacity>
       </ScrollView>
     );
   }
