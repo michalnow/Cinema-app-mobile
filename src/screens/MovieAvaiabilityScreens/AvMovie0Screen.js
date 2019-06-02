@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, Image, ActivityIndicator } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity
+} from "react-native";
 
 import firebase from "../../config/firebase";
 import { withNavigation } from "react-navigation";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 class AvMovie0Screen extends Component {
   constructor() {
@@ -85,7 +90,8 @@ class AvMovie0Screen extends Component {
                     borderColor: "transparent",
                     borderRadius: 12,
                     padding: 20
-                  }}   
+                  }}
+                  onPress={() => this.props.navigation.navigate("Movie0Rs")}
                 >
                   <Text
                     style={{
@@ -94,13 +100,10 @@ class AvMovie0Screen extends Component {
                       fontSize: 20,
                       fontWeight: "bold"
                     }}
-                    onPress={() => this.props.navigation.navigate("Movie0Rs")}
                   >
-                    
                     {" "}
                     {sean.seanceDate}
                   </Text>
-                  
                 </TouchableOpacity>
               );
             })}

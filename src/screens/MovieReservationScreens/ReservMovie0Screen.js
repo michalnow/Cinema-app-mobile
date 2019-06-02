@@ -1,10 +1,18 @@
 import React, { Component } from "react";
-import { Text, View, Image, ActivityIndicator } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+  ScrollView
+} from "react-native";
 
 import firebase from "../../config/firebase";
 import { withNavigation } from "react-navigation";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
 import axios from "axios";
+import Orientation from "react-native-orientation";
 
 class ReservMovie0Screen extends Component {
   constructor() {
@@ -21,6 +29,7 @@ class ReservMovie0Screen extends Component {
   }
 
   componentDidMount() {
+    Orientation.lockToLandscape();
     console.log(state.firebase);
     firebase
       .firestore()
@@ -44,48 +53,212 @@ class ReservMovie0Screen extends Component {
     });
   }
 
+  onclick = e => {
+    let array = this.state.userSeats;
+    console.log(e.target);
+    /* if (array.includes(e.target.attributes.name.nodeValue.substring(1))) {
+      array.splice(
+        array.indexOf(e.target.attributes.name.nodeValue.substring(1)),
+        1
+      );
+    }
+    console.log(e.target.attributes.name.nodeValue);
+    if (e.target.style.backgroundColor === "rgb(0, 255, 0)") {
+      this.setState({
+        [e.target.name]: (e.target.style.backgroundColor = "")
+      });
+    } else {
+      array.push(String(e.target.attributes.name.nodeValue).substring(1));
+      this.setState({
+        [e.target.name]: (e.target.style.backgroundColor = "#00FF00"),
+        userSeats: array.sort()
+      });
+    }*/
+  };
+
   render() {
     return (
-      <View
+      <ScrollView
         style={{
-          marginTop: 20,
+          marginTop: 2,
           marginLeft: 5,
-          marginRight: 5
+          marginRight: 5,
+          marginBottom: 20
         }}
       >
-        <View style={{ flex: 1, alignSelf: "stretch", flexDirection: "row" }}>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>1</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
+          Order tickets for Pulp Fiction
+        </Text>
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#7070EF",
+            paddingVertical: 15,
+            marginBottom: 5,
+            marginTop: 5,
+            marginLeft: 290,
+            marginRight: 290,
+            borderWidth: 0,
+            borderColor: "transparent",
+            borderRadius: 12
+          }}
+        >
+          <Text
+            style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
+          >
+            Submit
+          </Text>
+        </TouchableOpacity>
+
+        {this.state.seatsBooked === null ? (
+          <ActivityIndicator
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              padding: 180
+            }}
+            size="large"
+            color="#0000ff"
+          />
+        ) : (
+          <View>
+            {[...Array(5)].map((x, i) => (
+              <View
+                style={{
+                  flex: 1,
+                  alignSelf: "stretch",
+                  flexDirection: "row",
+                  marginTop: 10
+                }}
+              >
+                {[...Array(10)].map((x, no) => (
+                  <View
+                    style={{
+                      flex: 1,
+                      alignSelf: "stretch",
+                      marginRight: 2
+                    }}
+                    name={Number(`${i + 1}${no + 1}`)}
+                    onPress={this.onclick}
+                  >
+                    {this.state.seatsBooked.includes(
+                      Number(String(i + 1) + String(no + 1))
+                    ) ? (
+                      <Text
+                        style={{
+                          fontWeight: "bold",
+                          backgroundColor: "red",
+                          textAlign: "center",
+                          fontSize: 20
+                        }}
+                        name={Number(`${i + 1}${no + 1}`)}
+                      >
+                        {no + 1}
+                      </Text>
+                    ) : (
+                      <View
+                        style={{
+                          flex: 1,
+                          alignSelf: "stretch",
+                          marginRight: 2
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            backgroundColor: "gray",
+                            textAlign: "center",
+                            fontSize: 20
+                          }}
+                          name={"a" + Number(`${i + 1}${no + 1}`)}
+                          onPress={this.onclick}
+                        >
+                          {no + 1}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </View>
+            ))}
           </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>2</Text>
+        )}
+
+        {this.state.seatsBooked === null ? (
+          <ActivityIndicator
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              padding: 180
+            }}
+            size="large"
+            color="#0000ff"
+          />
+        ) : (
+          <View>
+            {[...Array(4)].map((x, i) => (
+              <View
+                style={{
+                  flex: 1,
+                  alignSelf: "stretch",
+                  flexDirection: "row",
+                  marginTop: 10
+                }}
+              >
+                {[...Array(15)].map((x, no) => (
+                  <View
+                    style={{
+                      flex: 1,
+                      alignSelf: "stretch",
+                      marginRight: 2
+                    }}
+                  >
+                    {this.state.seatsBooked.includes(
+                      Number(String(i + 6) + String(no + 1))
+                    ) ? (
+                      <Text
+                        style={{
+                          fontWeight: "bold",
+                          backgroundColor: "red",
+                          textAlign: "center",
+                          fontSize: 20
+                        }}
+                        name={Number(`${i + 6}${no + 1}`)}
+                      >
+                        {no + 1}
+                      </Text>
+                    ) : (
+                      <View
+                        style={{
+                          flex: 1,
+                          alignSelf: "stretch",
+                          marginRight: 2
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            backgroundColor: "gray",
+                            textAlign: "center",
+                            fontSize: 20
+                          }}
+                          name={"a" + Number(`${i + 6}${no + 1}`)}
+                          onPress={this.onclick}
+                        >
+                          {no + 1}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </View>
+            ))}
           </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>3</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>4</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>5</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>6</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>7</Text>
-          </View>
-          <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <Text>8</Text>
-            <View style={{ flex: 1, alignSelf: "stretch" }}>
-              <Text>9</Text>
-            </View>
-            <View style={{ flex: 1, alignSelf: "stretch" }}>
-              <Text>10</Text>
-            </View>
-          </View>
-        </View>
-      </View>
+        )}
+      </ScrollView>
     );
   }
 }
