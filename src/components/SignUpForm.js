@@ -97,14 +97,17 @@ class SignUpForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
+    padding: 20,
+    backgroundColor : "#7FDBFF"
   },
   input: {
     height: 50,
     fontSize: 20,
     textAlign: "center",
-    backgroundColor: "rgba(255,255,255,0.2)",
+    backgroundColor: "rgba(192,192,192,0.5)",
     marginBottom: 15,
+    marginLeft : 50,
+    marginRight : 50,
     color: "black",
     paddingHorizontal: 10
   },
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     opacity: 0.3
   },
   buttonContainer: {
-    backgroundColor: "#7070EF",
+    backgroundColor: "#0051a5",
     paddingVertical: 15,
     marginBottom: 20,
     marginLeft: 50,

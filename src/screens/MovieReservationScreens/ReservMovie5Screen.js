@@ -90,7 +90,7 @@ class ReservMovie5Screen extends Component {
           marginBottom: 20
         }}
       >
-        <Text style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
+        <Text style={{ fontSize: 25, fontWeight: "bold", textAlign: "center", color:"black" }}>
           Order tickets for The Godfather
         </Text>
         {this.state.seatsBooked === null ? (
@@ -247,7 +247,7 @@ class ReservMovie5Screen extends Component {
         )}
                 <TouchableOpacity
           style={{
-            backgroundColor: "#7070EF",
+            backgroundColor: "#0051a5",
             paddingVertical: 15,
             marginBottom: 5,
             marginTop: 5,
@@ -258,7 +258,7 @@ class ReservMovie5Screen extends Component {
             borderRadius: 12
           }}
         >
-          <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}>Submit</Text>
+          <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "bold", color:"white" }}>Submit</Text>
         </TouchableOpacity>
       </ScrollView>
     );
