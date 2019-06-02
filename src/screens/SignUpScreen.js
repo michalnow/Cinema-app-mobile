@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderColor: "transparent",
     borderRadius: 12,
-    padding: 100
+    padding: 105
   },
   buttonText: {
     textAlign: "center",
